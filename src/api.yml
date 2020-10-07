@@ -1,0 +1,73 @@
+openapi: 3.0.1
+info:
+  title: Example API
+  description: abc
+  version: 1.0.0
+externalDocs:
+  description: GitHub link
+  url: https://github.com/sashee/openapi_lambda
+servers:
+- url: ${api_url}
+paths:
+  /user:
+    get:
+      operationId: listUsers
+      summary: List users
+      responses:
+        200:
+          description: successful operation
+    post:
+      operationId: createUser
+      summary: Create user
+      requestBody:
+        content:
+          'application/json':
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+              required:
+                - name
+              additionalProperties: false
+        required: true
+      responses:
+        default:
+          description: Success
+  '/user/{userid}':
+    parameters:
+    - name: userid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: getUser
+      summary: Return user  
+      responses:
+        200:
+          description: Success
+    put:
+      operationId: updateUser
+      summary: Update user
+      requestBody:
+        content:
+          'application/json':
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+              required:
+                - name
+              additionalProperties: false
+        required: true
+      responses:
+        200:
+          description: Success
+    delete:
+      operationId: deleteUser
+      summary: Delete user
+      responses:
+        200:
+          description: Success
