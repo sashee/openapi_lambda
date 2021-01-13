@@ -10,6 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "aws-sdk": "^2.767.0",
-    "openapi-backend": "^3.6.2"
+    "openapi-backend": "3.6.3"
   }
 }

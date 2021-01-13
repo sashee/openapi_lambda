@@ -3,7 +3,7 @@ const AWS = require("aws-sdk");
 const docClient = new AWS.DynamoDB.DocumentClient();
 const {OpenAPIBackend} = require("openapi-backend");
 
-const api = new OpenAPIBackend({definition: "api.yml", handlers: {
+const api = new OpenAPIBackend({definition: "api.yml", quick: true, handlers: {
 	listUsers: async () => {
 		const items = await docClient.scan({
 			TableName: process.env.TABLE,
